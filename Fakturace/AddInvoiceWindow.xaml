@@ -1,0 +1,58 @@
+﻿<Window x:Class="Fakturace.AddInvoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Přidat fakturu" Height="510" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Číslo faktury:" />
+            <TextBox x:Name="InvoiceNumberTextBox" Margin="0,0,0,10" />
+            <TextBlock Text="Datum splatnosti:" />
+            <DatePicker x:Name="DueDatePicker" Margin="0,0,0,10" />
+        </StackPanel>
+
+        <GroupBox Header="Přidat položku" Grid.Row="1" Margin="0,10,0,10">
+            <StackPanel Margin="5">
+                <TextBlock Text="Služba:" />
+                <ComboBox x:Name="ServiceComboBox" Margin="0,0,0,5" DisplayMemberPath="Description" SelectionChanged="ServiceComboBox_SelectionChanged" />
+
+                <Grid Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                        <TextBlock Text="Hodinová sazba (Kč):" />
+                        <TextBox x:Name="RateTextBox" IsReadOnly="True" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                        <TextBlock Text="Počet hodin:" />
+                        <TextBox x:Name="HoursTextBox" Text="1" />
+                    </StackPanel>
+                </Grid>
+                <Button Content="Přidat položku" Click="AddItemButton_Click" Margin="0,10,0,0" />
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Položky faktury:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ListBox x:Name="InvoiceItemsListBox" Height="100" />
+            <TextBlock x:Name="TotalAmountTextBlock" Text="Celková částka: 0,00 Kč" 
+           HorizontalAlignment="Right" FontWeight="Bold" Margin="0,5,0,5"/>
+            
+        </StackPanel>
+        
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="SaveButton" Content="Uložit fakturu" Width="100" Margin="0,0,10,0" IsDefault="True" Click="SaveButton_Click" />
+            <Button x:Name="CancelButton" Content="Zrušit" Width="80" IsCancel="True" />
+        </StackPanel>
+        
+    </Grid>
+</Window>

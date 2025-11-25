@@ -1,0 +1,23 @@
+﻿<Window x:Class="Fakturace.AddCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fakturace"
+        mc:Ignorable="d"
+        Title="Přidat odběratele" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="15">
+        <TextBlock Text="Jméno:" />
+        <TextBox x:Name="NameTextBox" Width="250" Margin="0,0,0,10" />
+        <TextBlock Text="IČO:" />
+        <TextBox x:Name="IcoTextBox" Width="250" Margin="0,0,0,10" />
+        <TextBlock Text="Adresa:" />
+        <TextBox x:Name="AddressTextBox" Width="250" Margin="0,0,0,15" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="SaveButton" Content="Uložit" Width="80" Margin="0,0,10,0" IsDefault="True"
+                    Click="SaveButton_Click" />
+            <Button x:Name="CancelButton" Content="Zrušit" Width="80" IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>
